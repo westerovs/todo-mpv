@@ -5,7 +5,7 @@ import TaskView from './TaskView.js';
  */
 export default class TodoView {
   constructor(el) {
-    this.el = el;
+    this.el = el
     this.input = el.querySelector("[data-bind=input]");
     this.list  = el.querySelector("[data-bind=tasks]");
     

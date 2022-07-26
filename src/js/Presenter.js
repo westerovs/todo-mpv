@@ -1,3 +1,7 @@
+/**
+ * Presenter прослушивает события, извлекает данные, манипулирует ими и
+ * обновляет представление
+ */
 export default class TodoPresenter {
   constructor(view, model) {
     this.view                = view;

@@ -1,5 +1,4 @@
 # TEMPLATE
 🟢RUN:<br>
-https://westerovs.github.com
+https://westerovs.github.io/todo-mpv/
 <br>
-<img src="cover.png">
