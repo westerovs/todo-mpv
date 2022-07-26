@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="#" type="image/x-icon">
+	<title>MVP example</title>
+	<link rel="stylesheet" href="src/css/style.css">
+</head>
+<body class="page-body">
+
+	<section class="wrapper">
+		<h2>TODO</h2>
+
+		<form data-bind="todoView">
+			<div class="form-group">
+				<label>
+					<input data-bind="input" class="form-control" required placeholder="task"/>
+				</label>
+			</div>
+			<button class="btn" type="submit">Submit</button>
+			<ul data-bind="tasks"></ul>
+		</form>
+	</section>
+
+<script type="module" src="src/js/main.js"></script>
+</body>
+</html>
