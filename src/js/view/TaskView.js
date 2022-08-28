@@ -2,9 +2,9 @@
  * Инкапсулировать единую логику представления задачи
  */
 export default class TaskView {
-  constructor(text, inx) {
+  constructor(text, index) {
     this.text = text
-    this.index = inx
+    this.index = index
   
     this.onRemoveTaskCb = null
   }
@@ -14,7 +14,6 @@ export default class TaskView {
     el.innerHTML = `${ this.text } <a href="#" data-inx="${this.index}">[x]</a>`
     
     this.onRemoveTaskCb = this.onRemoveTaskCb || function () {};
-    console.log(this.onRemoveTaskCb)
     
     const btnClose = el.querySelector('a')
     btnClose.addEventListener('click', (e) => {

@@ -1,30 +1,34 @@
-import TaskView from './TaskView.js';
+import TaskView from './TaskView.js'
 
 /**
  * Логика просмотра виджета TODO
+ * Принимает на вход форму
  */
+
 export default class TodoView {
-  constructor(el) {
-    this.el = el
-    this.input = el.querySelector("[data-bind=input]");
-    this.list  = el.querySelector("[data-bind=tasks]");
+  constructor(form) {
+    this.form = form
     
-    this.onSubmitCb = function () {};
-    this.onRemoveTaskCb = function () {};
+    this.input = form.querySelector('[data-bind=input]')
+    this.list  = form.querySelector('[data-bind=tasks]')
     
-    this.el.addEventListener("submit", (e) => {
-      e.preventDefault();
-      this.onSubmitCb(this.input.value);
-    });
+    this.onSubmitCb = function () {}
+    this.onRemoveTaskCb = function () {}
+    
+    this.form.addEventListener("submit", (e) => {
+      e.preventDefault()
+      this.onSubmitCb(this.input.value)
+    })
   }
   
   emptyList() {
-    this.list.innerHTML = "";
+    this.list.innerHTML = ''
   }
   
-  addTask(text, inx) {
-    let taskView = new TaskView(text, inx);
-    taskView.onRemoveTaskCb = this.onRemoveTaskCb;
-    this.list.appendChild(taskView.render());
+  addTask(text, index) {
+    const taskView = new TaskView(text, index)
+    
+    taskView.onRemoveTaskCb = this.onRemoveTaskCb
+    this.list.appendChild(taskView.render())
   }
 }

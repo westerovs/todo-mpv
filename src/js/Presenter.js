@@ -2,26 +2,29 @@
  * Presenter прослушивает события, извлекает данные, манипулирует ими и
  * обновляет представление
  */
+
 export default class TodoPresenter {
   constructor(view, model) {
-    this.view                = view;
-    this.model               = model;
-    this.view.onSubmitCb     = this.onSubmit.bind(this);
-    this.view.onRemoveTaskCb = this.onRemoveTask.bind(this);
-    this.updateList();
+    this.view  = view;
+    this.model = model;
+    
+    this.view.onSubmitCb     = this.#onSubmit;
+    this.view.onRemoveTaskCb = this.#onRemoveTask;
+    this.#updateList();
   }
   
-  onRemoveTask(inx) {
+  #onRemoveTask = (inx) => {
     this.model.removeTask(inx);
-    this.updateList();
+    this.#updateList();
   }
   
-  onSubmit(text) {
+  #onSubmit = (text) => {
+    console.log(text)
     this.model.addTask(text);
-    this.updateList();
+    this.#updateList();
   }
   
-  updateList() {
+  #updateList() {
     this.view.emptyList();
     this.model.getTasks().forEach((text, inx) => {
       this.view.addTask(text, inx);
