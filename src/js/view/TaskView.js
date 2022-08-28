@@ -10,18 +10,31 @@ export default class TaskView {
   }
   
   render() {
-    const el = document.createElement('li')
-    el.innerHTML = `${ this.text } <a href="#" data-inx="${this.index}">[x]</a>`
+    const listItem = document.createElement('li')
+    listItem.classList.add('form__item')
+    
+    const btnClose = this.#createBtnClose()
+    
+    listItem.innerHTML = this.text
+    listItem.append(btnClose)
     
     this.onRemoveTaskCb = this.onRemoveTaskCb || function () {};
-    
-    const btnClose = el.querySelector('a')
+  
     btnClose.addEventListener('click', (e) => {
       e.preventDefault();
       this.onRemoveTaskCb(parseInt(e.target.dataset.inx, 10));
     })
     
-    return el
+    return listItem
+  }
+  
+  #createBtnClose = () => {
+    const btnClose = document.createElement('button')
+    btnClose.innerHTML = 'x'
+    btnClose.classList.add('form__item-close')
+    btnClose.setAttribute('data-inx', this.index)
+    
+    return btnClose
   }
 }
 

@@ -43,13 +43,6 @@ h2 {
   text-align: center;
 }
 
-input {
-  padding: 10px 5px;
-}
-
-button {
-  padding: 10px 5px;
-}
 
 /*безопасное скрытие элемента*/
 .visually-hidden {
@@ -77,12 +70,65 @@ button {
   border-radius: 5px;
 }
 
-.form-group {
+.form__group {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  max-width: 400px;
+  grid-template-columns: 1fr;
   align-items: center;
   margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
-.form-group input {
+.form__textarea {
+  padding: 5px 10px;
+  min-width: calc(400px - 20px);
+  max-width: calc(400px - 20px);
+  margin-bottom: 5px;
 }
+
+
+.form__btn {
+  padding: 10px 5px;
+  background-image: linear-gradient(darkgray, white);
+  border: 2px solid grey;
+  cursor: pointer;
+}
+
+.form__btn:active {
+  border: 2px solid black;
+}
+
+.form__list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px 0;
+}
+
+.form__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background: darkgray;
+}
+
+.form__item-close {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  color: tomato;
+  cursor: pointer;
+  border-color: transparent;
+  transition: 0.2s background-color;
+}
+
+.form__item-close:hover {
+  background-color: tomato;
+  color: black;
+}
+
+.form__btn-row {
+  width: 100%;
+}
+

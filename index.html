@@ -10,16 +10,19 @@
 <body class="page-body">
 
 	<section class="wrapper">
-		<h2>TODO</h2>
 
 		<form data-bind="todoView" class="form">
-			<div class="form-group">
-				<label for="form-control">Enter text:</label>
-				<input data-bind="input" id="form-control" required placeholder="task"/>
+			<h2>TODO</h2>
+
+			<div class="form__group">
+				<label for="form__control"></label>
+				<textarea data-bind="input" id="form__control" class="form__textarea" required placeholder="Enter the text"></textarea>
+				<button class="form__btn" type="submit">Submit</button>
 			</div>
 
-			<button class="btn" type="submit">Submit</button>
-			<ul data-bind="tasks"></ul>
+
+
+			<ul data-bind="tasks" class="form__list"></ul>
 		</form>
 	</section>
 
